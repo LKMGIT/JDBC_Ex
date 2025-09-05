@@ -53,3 +53,5 @@ auto increment의 경우 안넣어도 됌
 date는 now() 로 처리
 //bno를 안넣음
  String sql = "insert into boards(btitle, bcontent, bwriter, bdate, bfilename, bfiledata) values(?,?,?,now(),?,?)";
+
+
