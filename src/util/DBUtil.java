@@ -20,7 +20,6 @@ public class DBUtil {
         }
     }
 
-
     public static Connection getConnection() {
 
         try{

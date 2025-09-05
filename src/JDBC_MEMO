@@ -55,3 +55,15 @@ date는 now() 로 처리
  String sql = "insert into boards(btitle, bcontent, bwriter, bdate, bfilename, bfiledata) values(?,?,?,now(),?,?)";
 
 
+따로 Connection 객체를 만들기 위해 DBUtil 클래스를 만들어서 사용하는 것이 관리하기 편한다
+
+dbinfo.properties 를 만들어주고
+
+driver = com.mysql.cj.jdbc.Driver
+url = jdbc:mysql://localhost:3306/bookmarketdb?serverTimezone=Asia/Seoul
+username = root
+userpassword = mysql1234
+
+관련 설정을 입력한다.
+
+
