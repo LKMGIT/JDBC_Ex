@@ -100,11 +100,31 @@ public class Member_DAO implements Member_Interface {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        
+
     }
 
     @Override
     public Member selectById(String u_id) {
+        String sql = "call SP_MEMBER(?)";
+
+        try(CallableStatement cal = conn.prepareCall(sql)){
+            ResultSet rs = cal.getResultSet();
+            while(rs.next()){
+                Member member = new Member();
+                member.setSeq(rs.getInt(1));
+                member.setM_id(rs.getString(2));
+                member.setM_password(rs.getString(3));
+                member.setM_email(rs.getString(4));
+                member.setM_hp(rs.getString(5));
+                member.setM_registdate(rs.getDate(6));
+                member.setM_point(rs.getInt(7));
+                return member;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         return null;
     }
 }
